@@ -1,0 +1,35 @@
+<!--Script js in html file countdown time and shows on the screen -->
+<!DOCTYPE HTML>
+<html lang="pl">
+<head>
+ <meta charset="utf-8" />
+ <title>Countdown Time</title>
+	
+<script>
+	function countDown()
+	{
+		var today = new Date();
+		
+		var day = today.getDate();
+		var mounth = today.getMonth()+1;
+		var year = today.getFullYear();
+		
+		var hour = today.getHours();
+		if (hour<10) hour = "0"+hour;
+		
+		var minute = today.getMinutes();
+		if (minute<10) minute = "0"+minute;
+		
+		var second = today.getSeconds();
+		if (second<10) second = "0"+second;
+		
+		document.getElementById("clock").innerHTML = 
+		  day+"/"+mounth+"/"+year+" | "+hour+":"+minute+":"+second;
+		setTimeout("countDown()",1000);
+	}
+</script>
+</head>
+<body onload="countDown()">
+<div id="clock"></div> 
+</body>
+</html>
